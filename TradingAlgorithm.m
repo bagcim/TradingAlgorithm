@@ -8,7 +8,7 @@ volatility=sqrt(var(return1)*length(return1))
 
 Results=[];
 for j=0:1800
-    alpha=0.002+0.00001*j;  %Profit margin, optimal=0.0035 for sample price series
+    alpha=0.002+0.00001*j;  %Varied profit margin, optimal=0.0035 for sample price series
     Pb=1-alpha;             %Buy price
     Ps=1+alpha;             %Sell price  %Ps=1+alpha for STA, Ps=1 for ATA              
     QA1=0;                  %Quantity of the first asset
