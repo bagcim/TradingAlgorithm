@@ -1,8 +1,15 @@
 load("USDTDAI_series.mat");   %Load price series for USDT/DAI for January 2021
 
 %Calculate Volatility of the price series
+tol=0.006;  
 for k=2:length(price_series)
     return1(k)=(price_series(k)-price_series(k-1))./price_series(k-1);
+    if return1(k)>tol       %Eliminating jump points in price series
+        return1(k)=tol;
+    end
+    if return1(k)<-tol
+        return1(k)=-tol;
+    end
 end
 volatility=sqrt(var(return1)*length(return1))
 
